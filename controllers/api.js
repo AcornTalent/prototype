@@ -7,7 +7,7 @@ const tumblr = require('tumblr.js');
 const GitHub = require('@octokit/rest');
 const Twit = require('twit');
 const stripe = require('stripe')(process.env.STRIPE_SKEY);
-const twilio = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
+//const twilio = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
 const Linkedin = require('node-linkedin')(process.env.LINKEDIN_ID, process.env.LINKEDIN_SECRET, process.env.LINKEDIN_CALLBACK_URL);
 const clockwork = require('clockwork')({ key: process.env.CLOCKWORK_KEY });
 const paypal = require('paypal-rest-sdk');
@@ -402,16 +402,19 @@ exports.postStripe = (req, res) => {
  * GET /api/twilio
  * Twilio API example.
  */
+ /** Twilio stuff
 exports.getTwilio = (req, res) => {
   res.render('api/twilio', {
     title: 'Twilio API'
   });
 };
+*/
 
 /**
  * POST /api/twilio
  * Send a text message using Twilio.
  */
+ /** Twilio stuff
 exports.postTwilio = (req, res, next) => {
   req.assert('number', 'Phone number is required.').notEmpty();
   req.assert('message', 'Message cannot be blank.').notEmpty();
@@ -433,6 +436,7 @@ exports.postTwilio = (req, res, next) => {
     res.redirect('/api/twilio');
   }).catch(next);
 };
+*/
 
 /**
  * GET /api/clockwork
